@@ -70,8 +70,8 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set working directory
-      run: cd $(pwd)/AWS/storage/s3 && pwd && ls -al
-      working-directory: $(pwd)/AWS/storage/s3
+      run: cd ./AWS/storage/s3 && pwd && ls -al
+      working-directory: ./AWS/storage/s3
     
     - name: ls -al
       run: ls -al
