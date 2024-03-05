@@ -69,8 +69,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: PWD
+      run:  pwd && ls -al
+
     - name: Changing Directory
-      run:  cd ./AWS/storage/s3
+      run:  cd $(pwd)/AWS/storage/s3
+
+    - name: PWD
+      run:  pwd && ls -al
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
