@@ -20,10 +20,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "payg-tfstate"
-    storage_account_name = "tfstateql8kz"
+    resource_group_name  = "payg-tfstate-rg"
+    storage_account_name = "tfstatekm75v"
     container_name       = "tfstate"
-    key                  = "terraform.tfstate"
+    key                  = "terraform-aks-minimal.tfstate"
   }
 }
 

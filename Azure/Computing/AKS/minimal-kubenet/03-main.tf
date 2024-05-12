@@ -17,10 +17,11 @@
 # }
 
 resource "azurerm_kubernetes_cluster" "k8s" {
-  location            = azurerm_resource_group.rg.location
+  location            = var.rg_location
   name                = var.azurerm_kubernetes_cluster_name
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = var.rg_name
   dns_prefix          = var.azurerm_kubernetes_cluster_dns_prefix
+  sku_tier            = "Free"
 
   identity {
     type = "SystemAssigned"
@@ -35,7 +36,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     admin_username = var.username
 
     ssh_key {
-      key_data = jsondecode(azapi_resource_action.ssh_public_key_gen.output).publicKey
+      key_data = azapi_resource_action.ssh_public_key_gen.output.publicKey
     }
   }
   network_profile {

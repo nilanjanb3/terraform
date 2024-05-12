@@ -14,6 +14,29 @@ variable "client_secret" {
   type        = string
   description = "value of the Azure Client Secret"
 }
+# variable "tfstate_rg_name" {
+#   type        = string
+#   description = "value of the terraform state resource group name"
+#   default     = "payg-tfstate"
+
+# }
+# variable "tfstate_storage_account_name" {
+#   type        = string
+#   description = "value of the terraform state storage account name"
+#   default     = "tfstate87ex8"
+# }
+# variable "tfstate_container_name" {
+#   type        = string
+#   description = "value of the terraform state container name"
+#   default     = "tfstate"
+
+# }
+# variable "tfstate_key" {
+#   type        = string
+#   description = "value of the terraform state key"
+#   default     = "terraform-aks-minimal.tfstate"
+
+# }
 variable "ssh_key_name" {
   type        = string
   description = "value of the SSH key name"
@@ -25,6 +48,12 @@ variable "rg_name" {
   description = "value of the resource group name"
   default     = "payg-rg-01"
 }
+variable "rg_id" {
+  type        = string
+  description = "value of the resource group id"
+  default     = "/subscriptions/fbca2fee-4d29-4fce-b401-4e43892bcadb/resourceGroups/payg-rg-01"
+
+}
 variable "azurerm_kubernetes_cluster_name" {
   type        = string
   description = "value of the AKS cluster name"
@@ -35,7 +64,7 @@ variable "azurerm_kubernetes_cluster_dns_prefix" {
   description = "value of the AKS cluster dns prefix"
   default     = "payg-aks-01-dns"
 }
-variable "resource_group_location" {
+variable "rg_location" {
   type        = string
   default     = "eastus"
   description = "Location of the resource group."

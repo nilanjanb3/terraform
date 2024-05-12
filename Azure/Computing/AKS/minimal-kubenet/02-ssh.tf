@@ -15,10 +15,15 @@ resource "azapi_resource_action" "ssh_public_key_gen" {
 resource "azapi_resource" "ssh_public_key" {
   type      = "Microsoft.Compute/sshPublicKeys@2022-11-01"
   name      = var.ssh_key_name
-  location  = azurerm_resource_group.rg.location
-  parent_id = azurerm_resource_group.rg.id
+  location  = var.rg_location
+  parent_id = var.rg_id
 }
 
-output "key_data" {
-  value = jsondecode(azapi_resource_action.ssh_public_key_gen.output).publicKey
+output "public_key_data" {
+  value = azapi_resource_action.ssh_public_key_gen.output.publicKey
+}
+
+output "private_key_data" {
+  value     = azapi_resource_action.ssh_public_key_gen.output.privateKey
+  sensitive = true
 }
