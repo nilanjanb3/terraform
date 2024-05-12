@@ -35,3 +35,4 @@ terraform.rc
 
 # Ignore lock files
 **/*.lock.hcl
+**/*RemoteState/*
